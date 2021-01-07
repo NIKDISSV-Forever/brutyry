@@ -1,31 +1,24 @@
 # -*- coding: utf-8 -*-
-from datetime import datetime as дата
 from sys import stdout
-global КолоСимволов, ИмяФайла, предел
 
-def сгенерировать():
-	началв = дата.today()
-	уже = 0
-	файл = open(ИмяФайла, 'a')
+def generate(number_of_characters, file_name, chapel):
+	already = 0
+	file = open(file_name, 'a')
 
-	while уже <= предел:
-		результат = str(уже).rjust(КолВоСимволов, '0')
-		файл.write(результат)
-		stdout.write(результат+'\n')
-		уже += 1
-	всёв = дата.today()
-	
-	print('Начало: %s \nКонец: %s' %(началв, всёв))
-
+	while already <= chapel:
+		result = str(already).rjust(number_of_characters, '0')
+		file.write(result)
+		stdout.write(result+'\n')
+		already += 1
 while 1:
 	try:
-		КолВоСимволов = int(input('Кол-во символов: '))
-		предел = int('9' * КолВоСимволов)
+		number_of_characters = int(input("Кол-во символов: "))
+		chapel = int('9' * number_of_characters)
 		break
-	except Exception as ошибку:
-		print(ошибку)
+	except Exception as error:
+		stdout.write(error+'\n')
 
-ИмяФайла = input('Введите имя файла (любое): ')
-if ИмяФайла.isspace() or ИмяФайла == '':
-	ИмяФайла = 'wordlist.txt'
-сгенерировать()
+file_name = input("Введите имя файла (любое): ")
+if file_name.isspace() or file_name == '':
+	file_name = 'wordlist.txt'
+generate(number_of_characters, file_name, chapel)
