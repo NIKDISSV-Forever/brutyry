@@ -16,7 +16,7 @@ while 1:
 		chapel = int('9' * number_of_characters)
 		break
 	except Exception as error:
-		stdout.write(error+'\n')
+		stdout.write(str(error)+'\n')
 
 file_name = input("Введите имя файла (любое): ")
 if file_name.isspace() or file_name == '':
