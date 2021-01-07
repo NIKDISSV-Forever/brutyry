@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime as дата
-
+from sys import stdout
 global КолоСимволов, ИмяФайла, предел
 
 def сгенерировать():
@@ -11,7 +11,7 @@ def сгенерировать():
 	while уже <= предел:
 		результат = str(уже).rjust(КолВоСимволов, '0')
 		файл.write(результат)
-		print(результат)
+		stdout.write(результат+'\n')
 		уже += 1
 	всёв = дата.today()
 	
